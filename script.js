@@ -354,3 +354,32 @@
   });
 
 })();
+/* ==========================================================================
+   LÓGICA DO MODAL DE VÍDEO (PORTFÓLIO)
+   ========================================================================== */
+const videoModal = document.getElementById('videoModal');
+const portfolioVideo = document.getElementById('portfolioVideo');
+
+function openVideoModal(videoSrc) {
+  // Define a fonte do vídeo e abre a janela
+  portfolioVideo.src = videoSrc;
+  videoModal.classList.add('active');
+  // Dá play automaticamente
+  portfolioVideo.play();
+}
+
+function closeVideoModal() {
+  // Fecha a janela, pausa o vídeo e limpa a fonte para não pesar a memória
+  videoModal.classList.remove('active');
+  portfolioVideo.pause();
+  portfolioVideo.src = ''; 
+}
+
+// Fechar o modal se o usuário clicar fora do vídeo (no fundo escuro)
+if (videoModal) {
+  videoModal.addEventListener('click', function(e) {
+    if (e.target === videoModal) {
+      closeVideoModal();
+    }
+  });
+}
