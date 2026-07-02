@@ -40,6 +40,7 @@
 
   <div class="slides-wrapper" id="slidesWrapper">
 
+    <!-- SLIDE 1: HERO -->
     <section class="slide slide-cover">
       <div class="slide-bg-image"></div>
       <div class="slide-overlay"></div>
@@ -68,6 +69,7 @@
       </div>
     </section>
 
+    <!-- SLIDE 2: PACOTE 1 -->
     <section class="slide slide-package">
       <div class="slide-bg-image"></div>
       <div class="slide-overlay overlay-strong"></div>
@@ -81,7 +83,7 @@
             <span class="price-label">Investimento mensal</span>
             <div class="price-tag">
               <span class="price-currency">R$</span>
-              <span class="price-value">1.390</span>
+              <span class="price-value">1.290</span>
             </div>
           </div>
           
@@ -104,13 +106,14 @@
           
           <div class="package-cta">
             <a href="https://wa.me/5527997358236?text=Olá%20Matheus!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Pacote%20Start." target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-              Falar com Matheus
+              Escolher Plano Start
             </a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SLIDE 3: PACOTE 2 (RECOMENDADO) -->
     <section class="slide slide-package slide-premium">
       <div class="slide-bg-image"></div>
       <div class="slide-overlay overlay-strong"></div>
@@ -124,12 +127,12 @@
           <div class="package-header">
             <span class="package-tier">PACOTE 02</span>
             <h2 class="package-name">Ideal</h2>
-            <p class="package-desc">Perfeito para profissionais que desejam manter uma produção consistente e acompanhar o desempenho dos conteúdos.</p>
+            <p class="package-desc">Perfeito para profissionais que desejam manter uma produção consistente e de altíssima qualidade.</p>
             
             <span class="price-label">Investimento mensal</span>
             <div class="price-tag">
               <span class="price-currency">R$</span>
-              <span class="price-value">2.390</span>
+              <span class="price-value">1.890</span>
             </div>
           </div>
           
@@ -148,10 +151,6 @@
               <svg viewBox="0 0 24 24" class="check-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span>12 vídeos editados</span>
             </li>
-            <li>
-              <svg viewBox="0 0 24 24" class="check-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Análise de performance dos conteúdos</span>
-            </li>
           </ul>
           
           <div class="package-cta">
@@ -163,6 +162,7 @@
       </div>
     </section>
 
+    <!-- SLIDE 4: PACOTE 3 -->
     <section class="slide slide-package slide-master">
       <div class="slide-bg-image"></div>
       <div class="slide-overlay overlay-strong"></div>
@@ -176,12 +176,12 @@
           <div class="package-header">
             <span class="package-tier">PACOTE 03</span>
             <h2 class="package-name">Pro</h2>
-            <p class="package-desc">Uma parceria completa para quem deseja produzir conteúdo de forma recorrente, acompanhar os resultados e planejar estrategicamente os próximos passos.</p>
+            <p class="package-desc">Uma parceria completa para quem deseja produzir conteúdo de forma recorrente e planejar estrategicamente os próximos passos.</p>
             
             <span class="price-label">Investimento mensal</span>
             <div class="price-tag">
               <span class="price-currency">R$</span>
-              <span class="price-value">3.190</span>
+              <span class="price-value">2.690</span>
             </div>
           </div>
           
@@ -202,23 +202,20 @@
             </li>
             <li>
               <svg viewBox="0 0 24 24" class="check-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Análise de performance dos conteúdos</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" class="check-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span>Planejamento mensal de conteúdo</span>
             </li>
           </ul>
           
           <div class="package-cta">
             <a href="https://wa.me/5527997358236?text=Olá%20Matheus!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Pacote%20Pro." target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-              Falar com Matheus
+              Escolher Plano Pro
             </a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SLIDE 5: PORTFÓLIO VERTICAL -->
     <section class="slide slide-portfolio">
       <div class="slide-bg-image"></div>
       <div class="slide-overlay overlay-strong"></div>
@@ -229,10 +226,15 @@
         
         <div class="portfolio-doctors fade-up delay-3">
           
-          <div class="doctor-card">
+          <!-- Card 1 -->
+          <div class="doctor-card" onclick="openVideoModal('assets/videos/Vsl Descomplicando.mp4')">
             <div class="doctor-img-wrapper">
               <div class="doctor-tag">★ NEUROPEDIATRA</div>
               <img src="assets/images/foto raphael.png" alt="Dr. Raphael Rangel" loading="lazy" />
+              <!-- Botão Play -->
+              <div class="play-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
             </div>
             <div class="doctor-info">
               <span>DR. RAPHAEL RANGEL</span>
@@ -240,10 +242,15 @@
             </div>
           </div>
           
-          <div class="doctor-card">
+          <!-- Card 2 -->
+          <div class="doctor-card" onclick="openVideoModal('assets/videos/Dra Manoela.mp4')">
             <div class="doctor-img-wrapper">
               <div class="doctor-tag">★ DERMATOLOGISTA</div>
               <img src="assets/images/foto manoela.png" alt="Dra. Manoela Sarmento" loading="lazy" />
+              <!-- Botão Play -->
+              <div class="play-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
             </div>
             <div class="doctor-info">
               <span>DRA. MANOELA SARMENTO</span>
@@ -251,10 +258,15 @@
             </div>
           </div>
           
-          <div class="doctor-card">
+          <!-- Card 3 -->
+          <div class="doctor-card" onclick="openVideoModal('assets/videos/Ana Claudia.mp4')">
             <div class="doctor-img-wrapper">
               <div class="doctor-tag">★ NEUROLOGISTA</div>
               <img src="assets/images/foto ana claudia.png" alt="Dra. Ana Cláudia" loading="lazy" />
+              <!-- Botão Play -->
+              <div class="play-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
             </div>
             <div class="doctor-info">
               <span>DRA. ANA CLÁUDIA</span>
@@ -262,10 +274,15 @@
             </div>
           </div>
 
-          <div class="doctor-card">
+          <!-- Card 4 -->
+          <div class="doctor-card" onclick="openVideoModal('assets/videos/Dra Manoela 2.mp4')">
             <div class="doctor-img-wrapper">
               <div class="doctor-tag">★ DERMATOLOGISTA</div>
-              <img src="assets/images/foto manoela.png" alt="Dra. Manoela Sarmento" loading="lazy" />
+              <img src="assets/images/Foto manoela 2.png" alt="Dra. Manoela Sarmento" loading="lazy" />
+              <!-- Botão Play -->
+              <div class="play-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
             </div>
             <div class="doctor-info">
               <span>DRA. MANOELA SARMENTO</span>
@@ -283,6 +300,7 @@
       </div>
     </section>
 
+    <!-- SLIDE 6: PERGUNTAS FREQUENTES (FAQ) -->
     <section class="slide slide-faq">
       <div class="slide-bg-image"></div>
       <div class="slide-overlay overlay-strong"></div>
@@ -301,7 +319,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>Nós vamos até a sua clínica ou consultório com toda a nossa estrutura profissional de captação (câmeras de cinema, iluminação difusa de alto padrão e microfones). Organizamos o cenário rapidamente e realizamos a gravação de forma guiada, com direção de cena constante para que você se sinta completamente à vontade, mesmo se não tiver experiência em frente às câmeras.</p>
+                <p>Nós vamos até a sua clínica ou consultório com toda a nossa estrutura profissional de captação. Organizamos o cenário e realizamos a gravação de forma guiada, mesmo se não tiver experiência em frente às câmeras.</p>
               </div>
             </div>
           </div>
@@ -329,7 +347,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>O prazo padrão para entrega do primeiro lote de vídeos editados e coloridos é de até 10 dias úteis após a diária de gravação. Isso nos dá o tempo necessário para executar o tratamento de áudio, sound design, letterings e color grading de nível cinematográfico sem comprometer a qualidade do material final.</p>
+                <p>O prazo padrão para entrega do primeiro lote de vídeos editados e coloridos é de até 10 dias úteis após a diária de gravação.</p>
               </div>
             </div>
           </div>
@@ -343,7 +361,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                <p>Sim. Atendemos diárias fora de nossa localidade sob demanda. Nesses casos, os custos de deslocamento, hospedagem e logística são calculados e inclusos em uma proposta de orçamento personalizado para viabilizar a gravação no seu local de atendimento clínico.</p>
+                <p>Sim. Atendemos diárias fora de nossa localidade sob demanda.</p>
               </div>
             </div>
           </div>
@@ -351,6 +369,7 @@
       </div>
     </section>
 
+    <!-- SLIDE 7: CHAMADA FINAL -->
     <section class="slide slide-cta">
       <div class="slide-bg-image"></div>
       <div class="slide-overlay"></div>
@@ -391,6 +410,14 @@
 
   <div class="keyboard-hint" id="keyboardHint">
     Use <kbd>←</kbd> <kbd>→</kbd> ou scroll para navegar
+  </div>
+
+  <!-- MODAL DO PLAYER DE VÍDEO -->
+  <div class="video-modal" id="videoModal">
+    <button class="close-modal" onclick="closeVideoModal()">&times;</button>
+    <div class="video-container">
+      <video id="portfolioVideo" controls playsinline></video>
+    </div>
   </div>
 
   <script src="script.js"></script>
