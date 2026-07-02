@@ -1,7 +1,7 @@
 /* ==========================================================================
    MTHSFILMS — Apresentação Comercial para Profissionais da Saúde
    Design System: Preto Dominante (#000) & Dourado (#e5b63a)
-   Consistência Total com Site 2 — Edição Degradê Clean & Premium
+   Consistência Total com Site 2 — Edição Degradê Clean & Premium Fixa
    ========================================================================== */
 
 /* ── VARIÁVEIS & TOKENS ──────────────────────────────────────────────────── */
@@ -24,10 +24,10 @@
   --ff-body:     'Inter', sans-serif;
   --ease:        cubic-bezier(0.25, 1, 0.5, 1);
   --dur:         0.5s;
-  --slide-padding: 100px 52px;
+  --slide-padding: 90px 52px 70px;
 }
 
-/* ── RESET & BASE ────────────────────────────────────────────────────────── */
+/* ── RESET, BASE & OCULTAMENTO GLOBAL DE SCROLLBARS ──────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -35,10 +35,21 @@
   outline: none;
 }
 
+/* Remove a barra de rolagem visualmente em todos os navegadores */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+* {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
 html, body {
   overflow: hidden;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -62,18 +73,6 @@ a {
   color: inherit;
 }
 
-/* ── SCROLLBAR ───────────────────────────────────────────────────────────── */
-.slide::-webkit-scrollbar {
-  width: 4px;
-}
-.slide::-webkit-scrollbar-track {
-  background: var(--black);
-}
-.slide::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 3px;
-}
-
 /* ── NAVBAR (Efeito Fade-out Premium) ────────────────────────────────────── */
 .navbar {
   position: fixed;
@@ -87,7 +86,7 @@ a {
   padding: 0 52px;
   height: 80px;
   background: transparent;
-  border-bottom: none; /* Removido para tirar o corte */
+  border-bottom: none;
   transition: all var(--dur) var(--ease);
 }
 
@@ -171,7 +170,7 @@ a {
   transition: var(--dur) var(--ease);
 }
 
-/* ── BUTTONS (Bordas Arredondadas Modernas) ─────────────────────────────── */
+/* ── BUTTONS ─────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -224,7 +223,7 @@ a {
 
 /* ── SLIDES SYSTEM & CINE-GRADIENT ──────────────────────────────────────── */
 .slides-wrapper {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -244,6 +243,7 @@ a {
   visibility: hidden;
   transition: opacity 0.8s var(--ease), visibility 0.8s;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: var(--slide-padding);
 }
 
@@ -274,14 +274,14 @@ a {
   max-width: 1200px;
   width: 100%;
   margin: auto;
-  padding-top: 60px; 
-  padding-bottom: 60px;
+  padding-top: 40px; 
+  padding-bottom: 40px;
 }
 
 /* ── ANIMATIONS ──────────────────────────────────────────────────────────── */
 .fade-up {
   opacity: 0;
-  transform: translateY(25px);
+  transform: translateY(20px);
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 .slide.active .fade-up {
@@ -299,7 +299,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 .brand-line {
   display: block;
@@ -320,7 +320,7 @@ a {
   width: 50px;
   height: 1.5px;
   background: var(--accent);
-  margin: 20px auto;
+  margin: 16px auto;
   border-radius: 1px;
 }
 
@@ -336,7 +336,7 @@ a {
 
 .section-title {
   font-family: var(--ff-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 700;
   line-height: 1.2;
   color: var(--white);
@@ -345,18 +345,18 @@ a {
 /* ── SLIDE 1: HERO ───────────────────────────────────────────────────────── */
 .cover-title {
   font-family: var(--ff-display);
-  font-size: clamp(2rem, 5.5vw, 4.2rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--white);
 }
 .cover-subtitle {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
   color: var(--grey-light);
   max-width: 600px;
-  margin: 0 auto 35px;
-  line-height: 1.7;
+  margin: 0 auto 30px;
+  line-height: 1.6;
   font-weight: 400;
 }
 .hero-buttons {
@@ -369,7 +369,7 @@ a {
 }
 
 .scroll-hint {
-  margin-top: 45px;
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -390,13 +390,13 @@ a {
   50% { transform: translateY(6px); }
 }
 
-/* ── PACOTES ─────────────────────────────────────────────────────────────── */
+/* ── PACOTES Otimizados para Tela Fixa ────────────────────────────────────── */
 .package-card {
   background: rgba(10, 10, 10, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 24px;
-  padding: 45px;
-  max-width: 620px;
+  padding: 35px; /* Reduzido para caber melhor na tela sem rolagem */
+  max-width: 580px;
   width: 100%;
   margin: 0 auto;
   text-align: left;
@@ -449,9 +449,9 @@ a {
   gap: 6px;
 }
 
-.package-card .package-header { margin-bottom: 10px; }
+.package-card .package-header { margin-bottom: 8px; }
 .package-card .package-tier {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--accent);
   letter-spacing: 0.25em;
@@ -459,25 +459,25 @@ a {
 }
 .package-card .package-name {
   font-family: var(--ff-display);
-  font-size: 1.85rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--white);
-  margin: 4px 0 12px;
+  margin: 4px 0 8px;
 }
 .package-card .package-desc {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--grey-light);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .package-card .price-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--accent);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .package-card .price-tag {
   display: flex;
@@ -485,14 +485,14 @@ a {
   margin-top: 2px;
 }
 .package-card .price-currency {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--accent);
   margin-right: 4px;
 }
 .package-card .price-value {
   font-family: var(--ff-display);
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: var(--white);
   line-height: 1;
@@ -500,21 +500,21 @@ a {
 
 .package-card .package-list {
   list-style: none;
-  margin: 25px 0 35px;
+  margin: 20px 0 25px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 .package-card .package-list li {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--grey-light);
 }
 .package-card .package-list li svg.check-icon {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   stroke: var(--accent);
   fill: none;
   stroke-width: 2.5;
@@ -526,16 +526,16 @@ a {
 
 .card-premium .package-header,
 .card-master .package-header {
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 /* ── SLIDE PORTFÓLIO VERTICAL ────────────────────────────────────────────── */
 .portfolio-doctors {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  max-width: 1100px;
-  margin: 35px auto 25px;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 30px auto 20px;
 }
 
 .doctor-card {
@@ -555,10 +555,10 @@ a {
   aspect-ratio: 9 / 16;
   position: relative;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  margin-bottom: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
 }
 
 .doctor-img-wrapper img {
@@ -573,14 +573,14 @@ a {
 
 .doctor-tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.6rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.55rem;
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0.1em;
@@ -590,20 +590,20 @@ a {
 }
 
 .doctor-info {
-  padding: 0 6px;
+  padding: 0 4px;
 }
 .doctor-info span {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--accent);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   display: block;
 }
 .doctor-info h3 {
   font-family: var(--ff-display);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--white);
   line-height: 1.3;
@@ -611,18 +611,18 @@ a {
 
 /* ── PERGUNTAS FREQUENTES (FAQ) ─────────────────────────────────────────── */
 .faq-container {
-  max-width: 750px;
+  max-width: 700px;
   width: 100%;
-  margin: 30px auto 0;
+  margin: 25px auto 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   text-align: left;
 }
 .faq-item {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s var(--ease);
 }
@@ -633,15 +633,15 @@ a {
 .faq-item.active {
   border-color: rgba(229, 182, 58, 0.3);
   background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 .faq-question {
   width: 100%;
   background: none;
   border: none;
-  padding: 22px 28px;
+  padding: 18px 24px;
   font-family: var(--ff-display);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--white);
   text-align: left;
@@ -649,11 +649,11 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 .faq-toggle-icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: var(--accent);
   transition: transform 0.4s var(--ease);
   flex-shrink: 0;
@@ -672,41 +672,41 @@ a {
   transition: max-height 0.4s var(--ease);
 }
 .faq-answer-inner {
-  padding: 0 28px 22px;
-  font-size: 0.85rem;
+  padding: 0 24px 18px;
+  font-size: 0.8rem;
   color: var(--grey-light);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 /* ── CHAMADA FINAL (CTA) ────────────────────────────────────────────────── */
 .cta-title {
   font-family: var(--ff-display);
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 700;
   line-height: 1.25;
   color: var(--white);
 }
 .cta-subtitle {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
   color: var(--grey-light);
   max-width: 600px;
-  margin: 0 auto 35px;
-  line-height: 1.7;
+  margin: 0 auto 30px;
+  line-height: 1.6;
 }
-.cta-button-wrapper { margin-bottom: 30px; }
-.cta-button-wrapper .btn { padding: 16px 40px; font-size: 0.82rem; }
-.cta-social { margin-bottom: 24px; }
+.cta-button-wrapper { margin-bottom: 25px; }
+.cta-button-wrapper .btn { padding: 14px 35px; font-size: 0.8rem; }
+.cta-social { margin-bottom: 20px; }
 .insta-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--grey-light);
   transition: color 0.3s ease;
 }
 .insta-link:hover { color: var(--white); }
 .cta-footer {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--grey-muted);
   letter-spacing: 0.05em;
 }
@@ -720,14 +720,14 @@ a {
   z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   background: rgba(5, 5, 5, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--gold-border);
   border-radius: 50px;
-  padding: 10px 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  padding: 8px 16px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
 }
 .nav-arrow {
   background: none;
@@ -757,11 +757,11 @@ a {
 .slide-dots {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 .slide-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -771,7 +771,7 @@ a {
 }
 .slide-dot.active {
   background: var(--accent);
-  width: 24px;
+  width: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px var(--accent-glow);
 }
@@ -785,7 +785,7 @@ a {
   right: 52px;
   z-index: 1000;
   font-family: var(--ff-display);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--grey-muted);
@@ -801,7 +801,7 @@ a {
   bottom: 28px;
   left: 52px;
   z-index: 1000;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--grey-muted);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -830,9 +830,9 @@ a {
 .glow-1 { top: -100px; right: -100px; }
 .glow-2 { bottom: -100px; left: -100px; }
 
-/* ── RESPONSIVIDADE (Ajustes de Viewport) ────────────────────────────────── */
+/* ── RESPONSIVIDADE & FIXAÇÃO MOBILE ─────────────────────────────────────── */
 @media (max-width: 1200px) {
-  :root { --slide-padding: 90px 32px 60px; }
+  :root { --slide-padding: 85px 32px 60px; }
   .navbar { padding: 0 32px; }
 }
 
@@ -844,8 +844,8 @@ a {
 }
 
 @media (max-width: 768px) {
-  :root { --slide-padding: 85px 20px 70px; }
-  .navbar { padding: 0 20px; height: 70px; }
+  :root { --slide-padding: 80px 20px 60px; }
+  .navbar { padding: 0 20px; height: 70px; border-radius: 0 0 16px 16px; }
   
   /* Menu Mobile */
   .nav-toggle { display: flex; }
@@ -874,47 +874,144 @@ a {
   .nav-toggle.active span:nth-child(2) { opacity: 0; }
   .nav-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-  /* Ajuste Portfólio Mobile: Carrossel Horizontal */
+  /* Ajuste Portfólio Mobile: Estático sem Carrossel para tela Fixa */
   .portfolio-doctors {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 15px;
-    gap: 16px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .portfolio-doctors::-webkit-scrollbar {
-    height: 4px;
-  }
-  .portfolio-doctors::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 4px;
-  }
-  .doctor-card {
-    flex: 0 0 78%; 
-    scroll-snap-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding-bottom: 0; /* Remove padding de rolagem */
   }
   .doctor-img-wrapper {
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+  .doctor-info h3 { font-size: 0.85rem; line-height: 1.2; }
+  .doctor-info span { font-size: 0.55rem; }
+
+  /* Ajuste Compacto dos Cards de Preço Mobile */
+  .package-card {
+    padding: 20px;
     border-radius: 16px;
   }
-
-  .package-card {
-    padding: 24px;
-    max-height: 65vh;
-    overflow-y: auto;
-    border-radius: 20px;
-  }
-  .package-card .package-name { font-size: 1.5rem; }
-  .package-card .package-list { margin: 15px 0 25px; }
+  .package-card .package-name { font-size: 1.4rem; margin: 4px 0; }
+  .package-card .price-value { font-size: 2rem; }
+  .package-card .package-desc { font-size: 0.8rem; line-height: 1.4; margin-bottom: 5px; }
+  .package-card .package-list { margin: 12px 0 15px; gap: 8px; }
   
-  .slide-nav { bottom: 16px; gap: 12px; padding: 8px 16px; }
+  .slide-nav { bottom: 12px; gap: 12px; padding: 8px 16px; }
   .slide-dot { width: 6px; height: 6px; }
   .slide-dot.active { width: 18px; }
   
   .cover-title { font-size: 1.95rem; }
-  .cover-subtitle { margin-bottom: 25px; }
+  .cover-subtitle { margin-bottom: 20px; font-size: 0.85rem; }
   .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
-  .hero-buttons .btn { width: 100%; max-width: 280px; }
-  .scroll-hint { margin-top: 30px; }
+  .hero-buttons .btn { width: 100%; max-width: 280px; padding: 12px 20px; }
+  .scroll-hint { margin-top: 20px; }
+}
+/* ── PLAY BUTTON E OVERLAY DO PORTFÓLIO ─────────────────────────────────── */
+.doctor-card {
+  cursor: pointer; /* Muda o mouse para a "mãozinha" indicando clique */
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all var(--dur) var(--ease);
+  z-index: 3;
+}
+
+.play-overlay svg {
+  width: 50px;
+  height: 50px;
+  color: var(--white);
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+  transform: scale(0.8);
+  transition: transform var(--dur) var(--ease);
+}
+
+.doctor-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.doctor-card:hover .play-overlay svg {
+  transform: scale(1);
+}
+
+/* ── MODAL DO VÍDEO (POP-UP DE CINEMA) ─────────────────────────────────── */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.video-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-container {
+  position: relative;
+  width: 90%;
+  max-width: 420px; /* Mantém a proporção vertical do celular (Reels/TikTok) */
+  aspect-ratio: 9 / 16;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  transform: scale(0.95);
+  transition: transform 0.4s ease;
+}
+
+.video-modal.active .video-container {
+  transform: scale(1);
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  outline: none;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10000;
+}
+
+.close-modal:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    max-width: 350px;
+  }
+  .close-modal {
+    top: 15px;
+    right: 20px;
+    font-size: 2.2rem;
+  }
 }
